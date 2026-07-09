@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>خارطة الطريق لإدراج مجلة إنكي في DOAJ</title>
+<meta name="description" content="خارطة طريق تفصيلية لإدراج مجلة إنكي للعلوم الإنسانية والاجتماعية في دليل المجلات مفتوحة الوصول DOAJ، وفق معايير الدليل النسخة 2.8." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ---- palette: fired clay + lapis lazuli + Sumerian gold ---- */
+    --tablet:      #EBE1CC;   /* fired-clay tablet ground */
+    --tablet-2:    #E1D5BA;   /* raised panel */
+    --tablet-line: #CDBF9E;   /* incised line */
+    --lapis:       #1D3F63;   /* lapis lazuli — primary ink & structure */
+    --lapis-deep:  #10283F;   /* deepest — hero ground */
+    --lapis-soft:  #2E5680;
+    --gold:        #B0812B;   /* ochre / Sumerian gold */
+    --gold-bright: #D8A63F;
+    --reed:        #5F6E48;   /* muted reed green, used sparingly */
+    --ink:         #2A2419;   /* brown-black reed-ink for body */
+    --ink-soft:    #6A5F4C;
+    --clay-white:  #F5EEDD;
+
+    --shadow: 0 1px 0 rgba(255,255,255,.35), 0 18px 40px -22px rgba(16,40,63,.55);
+    --maxw: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Tajawal",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--tablet);
+    background-image:
+      radial-gradient(circle at 12% -5%, rgba(176,129,43,.10), transparent 42%),
+      radial-gradient(circle at 92% 8%, rgba(29,63,99,.07), transparent 46%);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.kufi{font-family:"Reem Kufi",serif;font-weight:600;line-height:1.35;}
+  .amiri{font-family:"Amiri",serif;}
+  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum";letter-spacing:.02em;}
+  a{color:var(--lapis);}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,48px);}
+
+  /* ===================== HERO ===================== */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(160deg,var(--lapis-deep) 0%, var(--lapis) 62%, #234a70 100%);
+    color:var(--clay-white);
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .hero::after{ /* incised horizon / ziggurat baseline */
+    content:"";position:absolute;inset-inline:0;bottom:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);opacity:.7;
+  }
+  .cuneiform-mark{
+    position:absolute;top:-2%;inset-inline-end:-1%;
+    font-size:clamp(180px,34vw,460px);line-height:.8;color:#fff;
+    opacity:.045;pointer-events:none;user-select:none;font-family:serif;
+    z-index:0;
+  }
+  .hero .wrap{position:relative;z-index:1;padding-block:clamp(40px,7vw,84px);}
+  .brandbar{
+    display:flex;align-items:center;gap:14px;
+    padding-bottom:26px;margin-bottom:34px;
+    border-bottom:1px solid rgba(216,166,63,.28);
+  }
+  .seal{
+    width:46px;height:46px;flex:0 0 auto;border-radius:8px;
+    display:grid;place-items:center;font-family:serif;font-size:26px;color:var(--lapis-deep);
+    background:linear-gradient(150deg,var(--gold-bright),var(--gold));
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35);
+  }
+  .brandbar b{font-family:"Reem Kufi";font-weight:700;font-size:1.15rem;letter-spacing:.02em;}
+  .brandbar span{color:#c9d6e4;font-size:.82rem;display:block;margin-top:-4px;}
+  .brandbar .spacer{margin-inline-start:auto;}
+  .brandbar .doaj-chip{
+    font-size:.78rem;color:var(--lapis-deep);background:var(--clay-white);
+    padding:5px 12px;border-radius:999px;font-weight:700;letter-spacing:.03em;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.8rem;letter-spacing:.16em;color:var(--gold-bright);
+    font-weight:500;text-transform:uppercase;margin:0 0 18px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-bright);display:inline-block;}
+  .hero h1{
+    font-size:clamp(2rem,5.2vw,3.5rem);font-weight:700;margin:0 0 20px;max-width:17ch;
+    letter-spacing:.005em;
+  }
+  .hero h1 em{font-style:normal;color:var(--gold-bright);}
+  .lede{font-size:clamp(1.02rem,2vw,1.25rem);color:#d7e0ea;max-width:56ch;margin:0 0 34px;font-weight:300;}
+  .lede .amiri{color:#eadfc6;}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;}
+  .stat{
+    background:rgba(255,255,255,.05);border:1px solid rgba(216,166,63,.30);
+    border-radius:14px;padding:16px 20px;min-width:140px;flex:1 1 150px;backdrop-filter:blur(2px);
+  }
+  .stat .v{font-family:"Reem Kufi";font-size:1.9rem;font-weight:700;color:#fff;display:block;line-height:1;}
+  .stat .v small{font-size:.9rem;color:var(--gold-bright);font-weight:500;}
+  .stat .k{font-size:.82rem;color:#b9c6d6;margin-top:6px;display:block;}
+
+  /* ===================== SECTION SHELL ===================== */
+  section{padding-block:clamp(56px,8vw,96px);}
+  .sec-head{max-width:60ch;margin-bottom:46px;}
+  .sec-head .eyebrow{color:var(--gold);}
+  .sec-head .eyebrow::before{background:var(--gold);}
+  .sec-head h2{font-size:clamp(1.6rem,3.4vw,2.35rem);color:var(--lapis);margin:0 0 14px;letter-spacing:.01em;}
+  .sec-head p{color:var(--ink-soft);font-size:1.02rem;margin:0;}
+
+  /* ===================== READINESS SNAPSHOT ===================== */
+  .snap{background:var(--lapis);color:var(--clay-white);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);}
+  .snap-grid{display:grid;grid-template-columns:1.1fr 1fr;}
+  .snap-left{padding:clamp(26px,4vw,44px);}
+  .snap-left h3{color:#fff;font-size:1.35rem;margin:0 0 10px;}
+  .snap-left p{color:#c7d3e0;font-size:.96rem;margin:0 0 26px;}
+  .meter-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;font-size:.86rem;color:#c7d3e0;}
+  .meter-label b{font-family:"Reem Kufi";font-size:1.7rem;color:var(--gold-bright);}
+  /* ziggurat progress */
+  .zig{display:flex;gap:5px;height:26px;align-items:flex-end;}
+  .zig i{flex:1;background:rgba(255,255,255,.12);border-radius:3px 3px 0 0;transition:background .4s ease, height .4s ease;}
+  .zig i.on{background:linear-gradient(180deg,var(--gold-bright),var(--gold));}
+  .snap-right{background:var(--lapis-deep);padding:clamp(24px,3.4vw,38px);border-inline-start:1px solid rgba(216,166,63,.22);}
+  .check{display:flex;gap:12px;align-items:flex-start;padding:11px 0;cursor:pointer;border-bottom:1px dashed rgba(255,255,255,.09);}
+  .check:last-child{border-bottom:0;}
+  .check input{position:absolute;opacity:0;pointer-events:none;}
+  .box{
+    flex:0 0 auto;width:22px;height:22px;border-radius:6px;margin-top:3px;
+    border:1.5px solid rgba(216,166,63,.55);display:grid;place-items:center;
+    color:transparent;font-size:13px;font-weight:700;transition:.2s;
+  }
+  .check input:checked + .box{background:var(--gold-bright);border-color:var(--gold-bright);color:var(--lapis-deep);}
+  .check .txt{font-size:.92rem;color:#dce4ee;}
+  .check input:checked ~ .txt{color:#9fb0c2;text-decoration:line-through;text-decoration-color:rgba(216,166,63,.6);}
+
+  /* ===================== TIMELINE (Gantt-ish months) ===================== */
+  .plan{background:var(--tablet-2);border:1px solid var(--tablet-line);border-radius:18px;padding:clamp(20px,3vw,34px);overflow-x:auto;}
+  .plan-inner{min-width:640px;}
+  .months{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-bottom:18px;border-bottom:2px solid var(--tablet-line);}
+  .months span{font-family:"Reem Kufi";font-size:.86rem;color:var(--lapis);text-align:center;padding-bottom:8px;position:relative;}
+  .months span::after{content:"";position:absolute;bottom:-2px;inset-inline-start:50%;width:1px;height:8px;background:var(--tablet-line);}
+  .bar-row{display:grid;grid-template-columns:repeat(6,1fr);align-items:center;margin:9px 0;position:relative;}
+  .bar{height:34px;border-radius:8px;display:flex;align-items:center;padding-inline:14px;color:#fff;font-size:.83rem;font-weight:500;white-space:nowrap;box-shadow:0 6px 14px -8px rgba(16,40,63,.5);}
+  .bar.p1{background:linear-gradient(90deg,var(--lapis),var(--lapis-soft));}
+  .bar.p2{background:linear-gradient(90deg,var(--gold),var(--gold-bright));color:var(--lapis-deep);}
+  .bar.p3{background:linear-gradient(90deg,var(--reed),#7f8f63);}
+  .bar.p4{background:linear-gradient(90deg,#7a4a2e,#a9713f);}
+
+  /* ===================== ZIGGURAT PHASE JOURNEY ===================== */
+  .journey{position:relative;max-width:900px;margin-inline:auto;}
+  .spine{position:absolute;inset-inline-end:26px;top:8px;bottom:8px;width:3px;
+    background:linear-gradient(180deg,var(--tablet-line),var(--gold) 8%,var(--gold) 92%,var(--tablet-line));border-radius:3px;}
+  .spine .fill{position:absolute;inset-inline:0;top:0;height:0;background:linear-gradient(180deg,var(--gold-bright),var(--lapis));border-radius:3px;transition:height .1s linear;}
+  .station{position:relative;padding-inline-end:76px;margin-bottom:30px;opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .station.in{opacity:1;transform:none;}
+  .marker{
+    position:absolute;inset-inline-end:8px;top:22px;width:40px;height:40px;border-radius:11px;
+    background:var(--tablet);border:2px solid var(--gold);color:var(--lapis);
+    display:grid;place-items:center;font-family:"Reem Kufi";font-weight:700;font-size:1.05rem;z-index:2;
+    box-shadow:0 0 0 5px var(--tablet);
+  }
+  .marker.done{background:linear-gradient(150deg,var(--gold-bright),var(--gold));color:var(--lapis-deep);border-color:var(--gold-bright);}
+  .card{
+    background:var(--clay-white);border:1px solid var(--tablet-line);border-radius:16px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:20px 24px;cursor:pointer;
+    border-inline-end:5px solid var(--lapis);background:linear-gradient(90deg,rgba(29,63,99,.05),transparent);}
+  .card-head h3{font-size:1.18rem;color:var(--lapis);margin:0;flex:1 1 auto;min-width:60%;}
+  .phase-tag{font-size:.72rem;letter-spacing:.12em;color:var(--gold);font-weight:700;text-transform:uppercase;display:block;margin-bottom:2px;}
+  .dur{font-size:.78rem;color:var(--ink-soft);background:var(--tablet);border:1px solid var(--tablet-line);padding:4px 11px;border-radius:999px;white-space:nowrap;}
+  .toggle{width:26px;height:26px;border-radius:7px;border:1px solid var(--tablet-line);display:grid;place-items:center;color:var(--lapis);transition:.25s;background:var(--tablet);}
+  .card.open .toggle{transform:rotate(45deg);background:var(--lapis);color:#fff;}
+  .card-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .card.open .card-body{max-height:820px;}
+  .card-body-in{padding:6px 24px 24px;}
+  .goal{font-family:"Amiri",serif;font-size:1.05rem;color:var(--ink);background:var(--tablet);border-radius:10px;padding:12px 16px;margin:0 0 18px;border-inline-start:3px solid var(--gold);}
+  ul.tasks{list-style:none;margin:0;padding:0;}
+  ul.tasks li{position:relative;padding:7px 26px 7px 0;font-size:.95rem;color:var(--ink);}
+  ul.tasks li::before{content:"𒀸";position:absolute;inset-inline-end:2px;top:7px;color:var(--gold);font-family:serif;font-size:.85rem;opacity:.8;}
+  .req{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:5px;margin-inline-start:6px;vertical-align:middle;letter-spacing:.04em;}
+  .req.must{background:rgba(122,74,46,.15);color:#7a4a2e;border:1px solid rgba(122,74,46,.3);}
+  .req.rec{background:rgba(95,110,72,.15);color:var(--reed);border:1px solid rgba(95,110,72,.3);}
+
+  /* ===================== CRITERIA GRID ===================== */
+  .crit-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:18px;}
+  .crit{background:var(--clay-white);border:1px solid var(--tablet-line);border-radius:14px;padding:22px 22px 20px;position:relative;box-shadow:var(--shadow);}
+  .crit .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--lapis);color:var(--gold-bright);font-family:serif;font-size:20px;margin-bottom:14px;}
+  .crit h4{font-family:"Reem Kufi";font-size:1.05rem;color:var(--lapis);margin:0 0 8px;}
+  .crit p{font-size:.9rem;color:var(--ink-soft);margin:0;}
+  .crit.flag{border-color:var(--gold);box-shadow:0 0 0 2px rgba(176,129,43,.25),var(--shadow);}
+  .crit.flag .ic{background:linear-gradient(150deg,var(--gold-bright),var(--gold));color:var(--lapis-deep);}
+  .flag-note{font-size:.8rem;color:var(--gold);font-weight:700;margin-top:10px;}
+
+  /* ===================== NOTE / EXCEPTION ===================== */
+  .aha{background:var(--lapis);color:var(--clay-white);border-radius:18px;padding:clamp(24px,3.4vw,40px);display:flex;gap:22px;flex-wrap:wrap;align-items:center;box-shadow:var(--shadow);}
+  .aha .big{font-family:"Reem Kufi";font-size:clamp(2.2rem,6vw,3rem);color:var(--gold-bright);line-height:1;flex:0 0 auto;}
+  .aha div{flex:1 1 320px;}
+  .aha h3{color:#fff;margin:0 0 8px;font-size:1.3rem;}
+  .aha p{margin:0;color:#cdd8e4;font-size:.98rem;}
+
+  /* ===================== FOOTER ===================== */
+  footer{background:var(--lapis-deep);color:#aebccb;padding-block:44px;margin-top:20px;text-align:center;font-size:.86rem;}
+  footer .mono{color:var(--gold-bright);}
+  footer a{color:var(--gold-bright);text-decoration:none;}
+  .foot-mark{font-family:serif;font-size:2rem;opacity:.3;color:#fff;display:block;margin-bottom:10px;}
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width:760px){
+    .snap-grid{grid-template-columns:1fr;}
+    .snap-right{border-inline-start:0;border-top:1px solid rgba(216,166,63,.22);}
+    .brandbar .spacer{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .station{opacity:1;transform:none;transition:none;}
+    *{transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="cuneiform-mark" aria-hidden="true">𒂗𒆠</div>
+  <div class="wrap">
+    <div class="brandbar">
+      <div class="seal" aria-hidden="true">𒂗</div>
+      <div>
+        <b>مؤسسة إنكي للدراسات والبحوث</b>
+        <span>مجلة إنكي للعلوم الإنسانية والاجتماعية</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="doaj-chip">هدف الإدراج · DOAJ</div>
+    </div>
+
+    <p class="eyebrow">خارطة الطريق التنفيذية</p>
+    <h1>طريق إدراج <em>مجلة إنكي</em> في دليل المجلات مفتوحة الوصول</h1>
+    <p class="lede">
+      خطة مُحكَمة، مرحلة بمرحلة، توائم بين مجلة إنكي ومعايير دليل <span class="num">DOAJ</span> (النسخة <span class="num">2.8</span>) —
+      من الهوية والوصول المفتوح إلى التحكيم والتقديم.
+      <span class="amiri">«إنكي» رمزُ الحكمة والمعرفة في حضارة الرافدين، ووجهتنا أن تُقرأ معرفتها في العالم كلّه.</span>
+    </p>
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="v"><span class="num">10</span></span>
+        <span class="k">أوراق بحثية مفتوحة الوصول — عتبة الإدراج المستهدفة</span>
+      </div>
+      <div class="stat">
+        <span class="v"><span class="num">8</span> <small>مراحل</small></span>
+        <span class="k">من التقييم حتى ما بعد القبول</span>
+      </div>
+      <div class="stat">
+        <span class="v">~<span class="num">6</span> <small>أشهر</small></span>
+        <span class="k">إطار زمني تنفيذي مقترح</span>
+      </div>
+      <div class="stat">
+        <span class="v">~<span class="num">3</span> <small>أشهر</small></span>
+        <span class="k">مدة مراجعة DOAJ بعد التقديم</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== READINESS SNAPSHOT ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">أين نقف الآن</p>
+      <h2>لوحة الجاهزية</h2>
+      <p>أشِّر على ما أنجزته المجلة فعليًا لتقيس مدى قربها من معايير الإدراج. يُحفظ تقدّمك تلقائيًا على هذا الجهاز.</p>
+    </div>
+
+    <div class="snap">
+      <div class="snap-grid">
+        <div class="snap-left">
+          <h3>مؤشر الجاهزية للإدراج</h3>
+          <p>مبني على المتطلبات الإلزامية الأساسية في دليل DOAJ.</p>
+          <div class="meter-label">
+            <span>نسبة الاكتمال</span>
+            <b class="num" id="pct">0%</b>
+          </div>
+          <div class="zig" id="zig" aria-hidden="true"></div>
+        </div>
+        <div class="snap-right" id="checks">
+          <!-- checkboxes injected -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MONTH TIMELINE ===================== -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">الجدول الزمني</p>
+      <h2>خط الزمن على مدى ستة أشهر</h2>
+      <p>توزيع المراحل الأربع الكبرى عبر الأشهر — مرن ويُضغط أو يُمدّ حسب جاهزية المجلة.</p>
+    </div>
+    <div class="plan">
+      <div class="plan-inner">
+        <div class="months">
+          <span>الشهر ١</span><span>الشهر ٢</span><span>الشهر ٣</span><span>الشهر ٤</span><span>الشهر ٥</span><span>الشهر ٦</span>
+        </div>
+        <div class="bar-row"><div class="bar p1" style="grid-column:1 / span 2;">التقييم · ISSN · الوصول المفتوح والترخيص</div></div>
+        <div class="bar-row"><div class="bar p2" style="grid-column:2 / span 2;">بناء صفحات الموقع والسياسات</div></div>
+        <div class="bar-row"><div class="bar p3" style="grid-column:3 / span 2;">التحكيم وهيئة التحرير + بلوغ ١٠ أوراق</div></div>
+        <div class="bar-row"><div class="bar p4" style="grid-column:5 / span 2;">التقديم · المراجعة · القبول</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ZIGGURAT JOURNEY ===================== -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">المخطط الانسيابي · مرحلة بمرحلة</p>
+      <h2>رحلة الإدراج على درجات الزقّورة</h2>
+      <p>ثماني محطات مرتّبة كما يصعد الزائر درجات الزقّورة — كل محطة تربط مهامك بمعيار DOAJ المقابل لها. اضغط أي محطة لعرض التفاصيل.</p>
+    </div>
+
+    <div class="journey">
+      <div class="spine" aria-hidden="true"><div class="fill" id="spineFill"></div></div>
+      <div id="stations"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== A&H EXCEPTION NOTE ===================== -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="aha">
+      <div class="big" aria-hidden="true">✦</div>
+      <div>
+        <h3>ميزة مهمة لمجلة إنكي</h3>
+        <p>بوصفها مجلة في <b>العلوم الإنسانية والاجتماعية</b>، يجيز DOAJ لها اعتماد <b>المراجعة التحريرية</b> بدل التحكيم الخارجي المزدوج، شرط أن يتولاها <b>محرّران اثنان على الأقل</b>. هذا يبسّط متطلب التحكيم مقارنةً بمجلات العلوم البحتة — لكن يبقى توثيق العملية بوضوح على الموقع إلزاميًا.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CRITERIA GRID ===================== -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">معايير DOAJ الأساسية</p>
+      <h2>ما الذي يفحصه الدليل فعليًا</h2>
+      <p>مستخلصة مباشرةً من «دليل التقديم» النسخة 2.8. الوسم <span class="req must">إلزامي</span> متطلب، و<span class="req rec">موصى به</span> يقوّي الملف دون أن يكون شرطًا.</p>
+    </div>
+
+    <div class="crit-wrap">
+      <div class="crit flag">
+        <div class="ic" aria-hidden="true">𒌷</div>
+        <h4>سجلّ النشر</h4>
+        <p>تاريخ نشر يتجاوز عامًا، أو نشر <b>١٠ أوراق بحثية</b> مفتوحة الوصول على الأقل، مع ٥ أوراق سنويًا كحدٍّ أدنى.</p>
+        <div class="flag-note">هدفنا المعلن: ١٠ أوراق مفتوحة الوصول <span class="req must">إلزامي</span></div>
+      </div>
+      <div class="crit">
+        <div class="ic" aria-hidden="true">☰</div>
+        <h4>الوصول المفتوح</h4>
+        <p>بيان وصول مفتوح مطابق لتعريف DOAJ، ونصّ كامل مجاني بلا حظر زمني ولا تسجيل إجباري للقراءة. <span class="req must">إلزامي</span></p>
+      </div>
+      <div class="crit">
+        <div class="ic" aria-hidden="true">#</div>
+        <h4>رقم ISSN</h4>
+        <p>رقم ISSN مُسجَّل ومؤكَّد في portal.issn.org، ظاهر على الموقع، واسم المجلة مطابق لما فيه. <span class="req must">إلزامي</span></p>
+      </div>
+      <div class="crit">
+        <div class="ic" aria-hidden="true">©</div>
+        <h4>الترخيص وحقوق النشر</h4>
+        <p>شروط ترخيص واضحة (يُنصح بـ Creative Commons)، وحقوق نشر منفصلة عن الموقع. «جميع الحقوق محفوظة» غير مقبولة للمحتوى. <span class="req must">إلزامي</span></p>
+      </div>
+      <div class="crit">
+        <div class="ic" aria-hidden="true">✍</div>
+        <h4>التحكيم وهيئة التحرير</h4>
+        <p>محرّر وهيئة تحرير (يُوصى بـ ٥ محرّرين) بأسماء وانتماءات، ووصف واضح لعملية التحكيم. <span class="req must">إلزامي</span></p>
+      </div>
+      <div class="crit">
+        <div class="ic" aria-hidden="true">◷</div>
+        <h4>الصفحات الإلزامية</h4>
+        <p>سياسة الوصول المفتوح، الأهداف والنطاق، تعليمات المؤلفين، الرسوم (أو نفيها)، وبيانات الناشر — كلها متاحة من الصفحة الرئيسة. <span class="req must">إلزامي</span></p>
+      </div>
+      <div class="crit">
+        <div class="ic" aria-hidden="true">⌘</div>
+        <h4>الحدّ من الاحتواء الداخلي</h4>
+        <p>ألّا تتجاوز نسبة أوراق أعضاء هيئة التحرير/المحكّمين ٢٥٪ في أيٍّ من آخر عددين. <span class="req must">إلزامي</span></p>
+      </div>
+      <div class="crit">
+        <div class="ic" aria-hidden="true">⛁</div>
+        <h4>أفضل الممارسات</h4>
+        <p>أرشفة طويلة الأمد، معرّفات DOI، سياسة إيداع، سياسة استخدام الذكاء الاصطناعي، ورفع البيانات الوصفية لـ DOAJ. <span class="req rec">موصى به</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-mark" aria-hidden="true">𒂗𒆠</span>
+    خارطة طريق إعدادية لإدراج مجلة إنكي في <span class="mono">DOAJ</span> · مبنية على «دليل التقديم» النسخة <span class="mono num">2.8</span>
+    <br>
+    المرجع الرسمي: <a href="https://doaj.org/apply/guide/" target="_blank" rel="noopener">doaj.org/apply/guide</a>
+    · مؤسسة إنكي للدراسات والبحوث
+  </div>
+</footer>
+
+<script>
+/* ---------- Readiness checklist (mandatory DOAJ items) ---------- */
+const CHECKS = [
+  "المجلة تنشر بحوثًا علمية فعليًا (٥ أوراق/سنة كحدّ أدنى)",
+  "نشر ١٠ أوراق بحثية مفتوحة الوصول أو تاريخ يتجاوز عامًا",
+  "رقم ISSN مؤكَّد على portal.issn.org وظاهر على الموقع",
+  "بيان وصول مفتوح مطابق لتعريف DOAJ",
+  "شروط ترخيص وحقوق نشر واضحة (CC موصى به)",
+  "هيئة تحرير معلنة بالأسماء والانتماءات",
+  "وصف عملية التحكيم/المراجعة التحريرية على الموقع",
+  "صفحة الرسوم (أو نفيها) وبيانات الناشر وبريد المجلة الرسمي"
+];
+const box = document.getElementById('checks');
+CHECKS.forEach((t,i)=>{
+  const l=document.createElement('label'); l.className='check';
+  l.innerHTML=`<input type="checkbox" data-i="${i}"><span class="box">✓</span><span class="txt">${t}</span>`;
+  box.appendChild(l);
+});
+const zig=document.getElementById('zig');
+for(let i=0;i<CHECKS.length;i++){const s=document.createElement('i');s.style.height=(45+i*7)+'%';zig.appendChild(s);}
+const zigBars=[...zig.children];
+
+function persistKey(){return 'enki_doaj_ready';}
+function load(){try{return JSON.parse(localStorage.getItem(persistKey()))||{};}catch(e){return {};}}
+function save(s){try{localStorage.setItem(persistKey(),JSON.stringify(s));}catch(e){}}
+let state=load();
+
+function render(){
+  const inputs=[...box.querySelectorAll('input')];
+  let done=0;
+  inputs.forEach(inp=>{const i=inp.dataset.i; inp.checked=!!state[i]; if(inp.checked)done++;});
+  const pct=Math.round(done/CHECKS.length*100);
+  document.getElementById('pct').textContent=pct+'%';
+  zigBars.forEach((b,i)=>b.classList.toggle('on', i<done));
+}
+box.addEventListener('change',e=>{
+  if(e.target.matches('input')){state[e.target.dataset.i]=e.target.checked;save(state);render();}
+});
+render();
+
+/* ---------- Ziggurat phase journey ---------- */
+const PHASES=[
+  {n:'٠',tag:'المرحلة صفر',t:'التقييم وتحليل الفجوة',dur:'أسبوعان',
+   goal:'قياس وضع المجلة الحالي مقابل معايير DOAJ قبل أي تعديل، وتثبيت التصنيف الموضوعي.',
+   tasks:[
+     ['تأكيد أن المجلة تنشر بحوثًا علمية موجّهة للباحثين (٥ أوراق/سنة كحدّ أدنى)','must'],
+     ['التحقق من توفّر ١٠ أوراق بحثية مفتوحة الوصول أو تاريخ يتجاوز عامًا','must'],
+     ['تثبيت التصنيف: علوم إنسانية واجتماعية (لتفعيل استثناء المراجعة التحريرية)','rec'],
+     ['جرد الفجوات في الموقع والسياسات وإعداد قائمة مهام','rec'],
+   ]},
+  {n:'١',tag:'المرحلة الأولى',t:'الهوية ورقم ISSN',dur:'أسبوعان',
+   goal:'ضمان هوية رقمية متطابقة يمكن لمحرّر DOAJ التحقق منها فورًا.',
+   tasks:[
+     ['استخراج/تأكيد ISSN وتسجيله في portal.issn.org','must'],
+     ['عرض رقم ISSN بوضوح على الصفحة الرئيسة','must'],
+     ['مطابقة اسم المجلة على الموقع مع اسمها في سجلّ ISSN','must'],
+   ]},
+  {n:'٢',tag:'المرحلة الثانية',t:'الوصول المفتوح والترخيص',dur:'٢–٣ أسابيع',
+   goal:'إعلان الوصول المفتوح والترخيص وحقوق النشر بصياغة مطابقة لتعريف DOAJ.',
+   tasks:[
+     ['نشر بيان وصول مفتوح صريح دون حظر زمني ولا تسجيل للقراءة','must'],
+     ['اعتماد ترخيص واضح (يُنصح بـ CC BY) وعرضه على الموقع','must'],
+     ['فصل حقوق نشر المحتوى عن حقوق الموقع، وإزالة أي «جميع الحقوق محفوظة» عن المقالات','must'],
+     ['تضمين الترخيص داخل المقالات (PDF/HTML)','rec'],
+   ]},
+  {n:'٣',tag:'المرحلة الثالثة',t:'الموقع والصفحات الإلزامية',dur:'٣–٤ أسابيع',
+   goal:'بناء البنية المعلوماتية التي يفحصها DOAJ صفحةً بصفحة على موقع مستقل.',
+   tasks:[
+     ['رابط مستقل لكل مقال بنص كامل HTML أو PDF','must'],
+     ['صفحات: الأهداف والنطاق، تعليمات المؤلفين، عملية التحرير','must'],
+     ['صفحة الرسوم بوضوح — أو التصريح بعدم وجود رسوم','must'],
+     ['بيانات الناشر: الاسم والعنوان وشخص للتواصل وبريد المجلة الرسمي وبلد التسجيل','must'],
+     ['إزالة أي إعلانات مزعجة أو إشارات لمعامل التأثير المخالفة','must'],
+   ]},
+  {n:'٤',tag:'المرحلة الرابعة',t:'التحكيم وضبط الجودة',dur:'٤ أسابيع',
+   goal:'إضفاء الطابع الرسمي على التحكيم وهيئة التحرير وبلوغ عتبة العشر أوراق.',
+   tasks:[
+     ['هيئة تحرير معلنة (يُوصى بـ ٥ محرّرين) بالأسماء والانتماءات','must'],
+     ['وصف عملية التحكيم — أو المراجعة التحريرية بمحرّرين اثنين للعلوم الإنسانية','must'],
+     ['ضمان ألّا يتجاوز احتواء هيئة التحرير ٢٥٪ في آخر عددين','must'],
+     ['بلوغ/تأكيد ١٠ أوراق بحثية مفتوحة الوصول','must'],
+     ['خدمة كشف الاستلال + عرض تواريخ الاستلام/القبول/النشر','rec'],
+   ]},
+  {n:'٥',tag:'المرحلة الخامسة',t:'أفضل الممارسات',dur:'أسبوعان (متوازٍ)',
+   goal:'رفع مصداقية الملف عبر ممارسات موصى بها تُسرّع القبول وتقوّي الحضور.',
+   tasks:[
+     ['أرشفة طويلة الأمد (Internet Archive / سجلّ Keepers)','rec'],
+     ['معرّفات ثابتة DOI لكل مقال','rec'],
+     ['سياسة إيداع ذاتي للمؤلفين وسياسة استخدام الذكاء الاصطناعي','rec'],
+     ['رفع البيانات الوصفية للمقالات إلى DOAJ بانتظام بعد القبول','rec'],
+   ]},
+  {n:'٦',tag:'المرحلة السادسة',t:'التقديم والمتابعة',dur:'أسبوع + متابعة',
+   goal:'تقديم طلب دقيق والاستجابة السريعة لمحرّر DOAJ حتى صدور القرار.',
+   tasks:[
+     ['التسجيل ببريد المجلة الرسمي وملء نموذج الطلب ومراجعته قبل الإرسال','must'],
+     ['تأكيد وصول شاشة الشكر ورسالة التأكيد بعد الإرسال','must'],
+     ['الرد على استفسارات المحرّر خلال شهر (وإلا رُفض الطلب)','must'],
+     ['متابعة القرار — يصدر عادةً خلال نحو ثلاثة أشهر','rec'],
+   ]},
+  {n:'٧',tag:'المرحلة السابعة',t:'ما بعد القبول',dur:'مستمرّ',
+   goal:'الحفاظ على الامتثال وتحديث السجلّ لضمان بقاء المجلة مُدرجة.',
+   tasks:[
+     ['تحديث سجلّ DOAJ عند أي تغيير في سياسات المجلة','must'],
+     ['رفع البيانات الوصفية للأعداد الجديدة أولًا بأول','rec'],
+     ['الاستعداد لإعادة التقييم الدوري والحفاظ على توفّر الموقع','rec'],
+   ]},
+];
+
+const stations=document.getElementById('stations');
+PHASES.forEach((p,idx)=>{
+  const st=document.createElement('div'); st.className='station';
+  const tasks=p.tasks.map(([txt,type])=>`<li>${txt}<span class="req ${type}">${type==='must'?'إلزامي':'موصى به'}</span></li>`).join('');
+  st.innerHTML=`
+    <div class="marker" aria-hidden="true">${p.n}</div>
+    <div class="card">
+      <div class="card-head" role="button" tabindex="0" aria-expanded="false">
+        <div style="flex:1 1 auto;min-width:60%">
+          <span class="phase-tag">${p.tag}</span>
+          <h3>${p.t}</h3>
+        </div>
+        <span class="dur">${p.dur}</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-in">
+        <p class="goal">${p.goal}</p>
+        <ul class="tasks">${tasks}</ul>
+      </div></div>
+    </div>`;
+  stations.appendChild(st);
+});
+
+/* expand / collapse */
+function toggleCard(head){
+  const card=head.closest('.card');
+  const open=card.classList.toggle('open');
+  head.setAttribute('aria-expanded',open);
+}
+stations.querySelectorAll('.card-head').forEach(h=>{
+  h.addEventListener('click',()=>toggleCard(h));
+  h.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleCard(h);}});
+});
+/* open the first phase by default */
+const firstHead=stations.querySelector('.card-head'); if(firstHead)toggleCard(firstHead);
+
+/* scroll reveal + spine fill */
+const stEls=[...document.querySelectorAll('.station')];
+const io=new IntersectionObserver((ents)=>{
+  ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.2});
+stEls.forEach(s=>io.observe(s));
+
+const spineFill=document.getElementById('spineFill');
+const journey=document.querySelector('.journey');
+function onScroll(){
+  if(!journey)return;
+  const r=journey.getBoundingClientRect();
+  const vh=window.innerHeight;
+  const total=r.height;
+  const passed=Math.min(Math.max(vh*0.5 - r.top,0),total);
+  spineFill.style.height=(passed/total*100)+'%';
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+</script>
+</body>
+</html>

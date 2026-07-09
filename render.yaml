@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: enki-doaj-roadmap
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
