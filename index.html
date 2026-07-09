@@ -7,24 +7,25 @@
 <meta name="description" content="خارطة طريق تفصيلية لإدراج مجلة إنكي للعلوم الإنسانية والاجتماعية في دليل المجلات مفتوحة الوصول DOAJ، وفق معايير الدليل النسخة 2.8." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@200;300;400;500;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* ---- palette: fired clay + lapis lazuli + Sumerian gold ---- */
-    --tablet:      #EBE1CC;   /* fired-clay tablet ground */
-    --tablet-2:    #E1D5BA;   /* raised panel */
-    --tablet-line: #CDBF9E;   /* incised line */
-    --lapis:       #1D3F63;   /* lapis lazuli — primary ink & structure */
-    --lapis-deep:  #10283F;   /* deepest — hero ground */
-    --lapis-soft:  #2E5680;
-    --gold:        #B0812B;   /* ochre / Sumerian gold */
-    --gold-bright: #D8A63F;
-    --reed:        #5F6E48;   /* muted reed green, used sparingly */
-    --ink:         #2A2419;   /* brown-black reed-ink for body */
-    --ink-soft:    #6A5F4C;
-    --clay-white:  #F5EEDD;
+    /* ---- palette: lapis on porcelain — blue & white only ---- */
+    --navy-deep: #071E38;   /* deepest — hero ground */
+    --navy:      #0C2D57;   /* primary ink & structure */
+    --blue:      #1E56A0;   /* mid blue */
+    --blue-soft: #3D6B9E;
+    --sky:       #58A6E8;   /* bright accent */
+    --sky-soft:  #9CC9F0;
+    --ice:       #EAF3FB;   /* pale panel */
+    --paper:     #F7FAFD;   /* page ground */
+    --white:     #FFFFFF;
+    --line:      #D8E6F3;   /* hairline */
+    --ink:       #12263F;   /* body text */
+    --ink-soft:  #5B7188;
 
-    --shadow: 0 1px 0 rgba(255,255,255,.35), 0 18px 40px -22px rgba(16,40,63,.55);
+    --shadow-sm: 0 1px 2px rgba(12,45,87,.06), 0 8px 24px -16px rgba(12,45,87,.25);
+    --shadow:    0 1px 2px rgba(12,45,87,.05), 0 24px 48px -24px rgba(12,45,87,.35);
     --maxw: 1120px;
   }
 
@@ -32,192 +33,232 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    font-family:"Tajawal",system-ui,sans-serif;
+    font-family:"Readex Pro",system-ui,sans-serif;
     color:var(--ink);
-    background:var(--tablet);
+    background:var(--paper);
     background-image:
-      radial-gradient(circle at 12% -5%, rgba(176,129,43,.10), transparent 42%),
-      radial-gradient(circle at 92% 8%, rgba(29,63,99,.07), transparent 46%);
-    line-height:1.75;
+      radial-gradient(circle at 10% -6%, rgba(88,166,232,.10), transparent 40%),
+      radial-gradient(circle at 94% 12%, rgba(30,86,160,.06), transparent 44%),
+      radial-gradient(rgba(30,86,160,.05) 1px, transparent 1px);
+    background-size:auto,auto,26px 26px;
+    line-height:1.8;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  h1,h2,h3,.kufi{font-family:"Reem Kufi",serif;font-weight:600;line-height:1.35;}
-  .amiri{font-family:"Amiri",serif;}
+  h1,h2,h3,h4,.display{font-family:"El Messiri",sans-serif;font-weight:600;line-height:1.4;}
+  .ruqaa{font-family:"Aref Ruqaa",serif;}
   .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum";letter-spacing:.02em;}
-  a{color:var(--lapis);}
+  a{color:var(--blue);}
   .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,48px);}
 
   /* ===================== HERO ===================== */
   .hero{
     position:relative;
     background:
-      linear-gradient(160deg,var(--lapis-deep) 0%, var(--lapis) 62%, #234a70 100%);
-    color:var(--clay-white);
+      radial-gradient(ellipse 120% 90% at 85% -20%, rgba(88,166,232,.28), transparent 55%),
+      radial-gradient(ellipse 90% 70% at 0% 110%, rgba(30,86,160,.5), transparent 60%),
+      linear-gradient(165deg,var(--navy-deep) 0%, var(--navy) 58%, #133C6E 100%);
+    color:var(--white);
     overflow:hidden;
     isolation:isolate;
   }
-  .hero::after{ /* incised horizon / ziggurat baseline */
+  .hero::before{ /* fine blueprint grid */
+    content:"";position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:
+      linear-gradient(rgba(156,201,240,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(156,201,240,.07) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse 90% 90% at 70% 10%, #000 30%, transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 90% at 70% 10%, #000 30%, transparent 75%);
+  }
+  .hero::after{ /* luminous baseline */
     content:"";position:absolute;inset-inline:0;bottom:0;height:2px;
-    background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);opacity:.7;
+    background:linear-gradient(90deg,transparent,var(--sky),transparent);opacity:.8;
   }
   .cuneiform-mark{
     position:absolute;top:-2%;inset-inline-end:-1%;
     font-size:clamp(180px,34vw,460px);line-height:.8;color:#fff;
-    opacity:.045;pointer-events:none;user-select:none;font-family:serif;
+    opacity:.05;pointer-events:none;user-select:none;font-family:serif;
     z-index:0;
   }
-  .hero .wrap{position:relative;z-index:1;padding-block:clamp(40px,7vw,84px);}
+  .hero .wrap{position:relative;z-index:1;padding-block:clamp(44px,7vw,92px);}
   .brandbar{
     display:flex;align-items:center;gap:14px;
-    padding-bottom:26px;margin-bottom:34px;
-    border-bottom:1px solid rgba(216,166,63,.28);
+    padding-bottom:26px;margin-bottom:38px;
+    border-bottom:1px solid rgba(156,201,240,.22);
   }
   .seal{
-    width:46px;height:46px;flex:0 0 auto;border-radius:8px;
-    display:grid;place-items:center;font-family:serif;font-size:26px;color:var(--lapis-deep);
-    background:linear-gradient(150deg,var(--gold-bright),var(--gold));
-    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35);
+    width:48px;height:48px;flex:0 0 auto;border-radius:12px;
+    display:grid;place-items:center;font-family:serif;font-size:26px;color:var(--navy);
+    background:linear-gradient(150deg,#fff,var(--sky-soft));
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6), 0 8px 20px -8px rgba(0,0,0,.5);
   }
-  .brandbar b{font-family:"Reem Kufi";font-weight:700;font-size:1.15rem;letter-spacing:.02em;}
-  .brandbar span{color:#c9d6e4;font-size:.82rem;display:block;margin-top:-4px;}
+  .brandbar b{font-family:"El Messiri";font-weight:700;font-size:1.18rem;letter-spacing:.02em;}
+  .brandbar span{color:#A9C7E4;font-size:.82rem;display:block;margin-top:-3px;}
   .brandbar .spacer{margin-inline-start:auto;}
   .brandbar .doaj-chip{
-    font-size:.78rem;color:var(--lapis-deep);background:var(--clay-white);
-    padding:5px 12px;border-radius:999px;font-weight:700;letter-spacing:.03em;
+    font-size:.78rem;color:var(--navy);background:var(--white);
+    padding:6px 14px;border-radius:999px;font-weight:700;letter-spacing:.03em;
+    box-shadow:0 6px 16px -6px rgba(0,0,0,.4);
   }
   .eyebrow{
-    display:inline-flex;align-items:center;gap:9px;
-    font-size:.8rem;letter-spacing:.16em;color:var(--gold-bright);
-    font-weight:500;text-transform:uppercase;margin:0 0 18px;
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.8rem;letter-spacing:.18em;color:var(--sky);
+    font-weight:500;margin:0 0 18px;
   }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-bright);display:inline-block;}
+  .eyebrow::before{content:"";width:28px;height:1.5px;background:var(--sky);display:inline-block;border-radius:2px;}
   .hero h1{
-    font-size:clamp(2rem,5.2vw,3.5rem);font-weight:700;margin:0 0 20px;max-width:17ch;
-    letter-spacing:.005em;
+    font-size:clamp(2.05rem,5.2vw,3.6rem);font-weight:700;margin:0 0 20px;max-width:18ch;
+    letter-spacing:.005em;color:#fff;
   }
-  .hero h1 em{font-style:normal;color:var(--gold-bright);}
-  .lede{font-size:clamp(1.02rem,2vw,1.25rem);color:#d7e0ea;max-width:56ch;margin:0 0 34px;font-weight:300;}
-  .lede .amiri{color:#eadfc6;}
+  .hero h1 em{font-style:normal;color:var(--sky);text-shadow:0 0 34px rgba(88,166,232,.45);}
+  .lede{font-size:clamp(1.02rem,2vw,1.22rem);color:#C4D8EC;max-width:58ch;margin:0 0 38px;font-weight:200;}
+  .lede .ruqaa{color:#E4EFFA;font-size:1.12em;}
 
   .stat-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;}
   .stat{
-    background:rgba(255,255,255,.05);border:1px solid rgba(216,166,63,.30);
-    border-radius:14px;padding:16px 20px;min-width:140px;flex:1 1 150px;backdrop-filter:blur(2px);
+    background:rgba(255,255,255,.06);border:1px solid rgba(156,201,240,.25);
+    border-radius:16px;padding:18px 22px;min-width:145px;flex:1 1 150px;backdrop-filter:blur(4px);
+    transition:transform .3s ease, background .3s ease;
   }
-  .stat .v{font-family:"Reem Kufi";font-size:1.9rem;font-weight:700;color:#fff;display:block;line-height:1;}
-  .stat .v small{font-size:.9rem;color:var(--gold-bright);font-weight:500;}
-  .stat .k{font-size:.82rem;color:#b9c6d6;margin-top:6px;display:block;}
+  .stat:hover{transform:translateY(-3px);background:rgba(255,255,255,.09);}
+  .stat .v{font-family:"El Messiri";font-size:2rem;font-weight:700;color:#fff;display:block;line-height:1.15;}
+  .stat .v small{font-size:.9rem;color:var(--sky);font-weight:500;}
+  .stat .k{font-size:.8rem;color:#9DBBDA;margin-top:6px;display:block;line-height:1.6;}
 
   /* ===================== SECTION SHELL ===================== */
   section{padding-block:clamp(56px,8vw,96px);}
-  .sec-head{max-width:60ch;margin-bottom:46px;}
-  .sec-head .eyebrow{color:var(--gold);}
-  .sec-head .eyebrow::before{background:var(--gold);}
-  .sec-head h2{font-size:clamp(1.6rem,3.4vw,2.35rem);color:var(--lapis);margin:0 0 14px;letter-spacing:.01em;}
-  .sec-head p{color:var(--ink-soft);font-size:1.02rem;margin:0;}
+  .sec-head{max-width:62ch;margin-bottom:46px;}
+  .sec-head .eyebrow{color:var(--blue);}
+  .sec-head .eyebrow::before{background:var(--blue);}
+  .sec-head h2{font-size:clamp(1.65rem,3.4vw,2.4rem);color:var(--navy);margin:0 0 12px;letter-spacing:.01em;}
+  .sec-head p{color:var(--ink-soft);font-size:1rem;margin:0;}
 
   /* ===================== READINESS SNAPSHOT ===================== */
-  .snap{background:var(--lapis);color:var(--clay-white);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);}
+  .snap{background:var(--white);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);}
   .snap-grid{display:grid;grid-template-columns:1.1fr 1fr;}
-  .snap-left{padding:clamp(26px,4vw,44px);}
-  .snap-left h3{color:#fff;font-size:1.35rem;margin:0 0 10px;}
-  .snap-left p{color:#c7d3e0;font-size:.96rem;margin:0 0 26px;}
-  .meter-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;font-size:.86rem;color:#c7d3e0;}
-  .meter-label b{font-family:"Reem Kufi";font-size:1.7rem;color:var(--gold-bright);}
+  .snap-left{padding:clamp(28px,4vw,46px);}
+  .snap-left h3{color:var(--navy);font-size:1.4rem;margin:0 0 8px;}
+  .snap-left p{color:var(--ink-soft);font-size:.95rem;margin:0 0 28px;}
+  .meter-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;font-size:.86rem;color:var(--ink-soft);}
+  .meter-label b{font-family:"El Messiri";font-size:2rem;color:var(--blue);}
   /* ziggurat progress */
-  .zig{display:flex;gap:5px;height:26px;align-items:flex-end;}
-  .zig i{flex:1;background:rgba(255,255,255,.12);border-radius:3px 3px 0 0;transition:background .4s ease, height .4s ease;}
-  .zig i.on{background:linear-gradient(180deg,var(--gold-bright),var(--gold));}
-  .snap-right{background:var(--lapis-deep);padding:clamp(24px,3.4vw,38px);border-inline-start:1px solid rgba(216,166,63,.22);}
-  .check{display:flex;gap:12px;align-items:flex-start;padding:11px 0;cursor:pointer;border-bottom:1px dashed rgba(255,255,255,.09);}
+  .zig{display:flex;gap:5px;height:30px;align-items:flex-end;}
+  .zig i{flex:1;background:var(--ice);border-radius:4px 4px 0 0;transition:background .4s ease, height .4s ease;}
+  .zig i.on{background:linear-gradient(180deg,var(--sky),var(--blue));box-shadow:0 4px 12px -4px rgba(30,86,160,.5);}
+  .snap-right{
+    background:
+      radial-gradient(ellipse 100% 60% at 100% 0%, rgba(88,166,232,.25), transparent 60%),
+      linear-gradient(165deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:var(--white);
+    padding:clamp(24px,3.4vw,38px);
+  }
+  .check{display:flex;gap:12px;align-items:flex-start;padding:11px 0;cursor:pointer;border-bottom:1px dashed rgba(156,201,240,.18);}
   .check:last-child{border-bottom:0;}
   .check input{position:absolute;opacity:0;pointer-events:none;}
   .box{
-    flex:0 0 auto;width:22px;height:22px;border-radius:6px;margin-top:3px;
-    border:1.5px solid rgba(216,166,63,.55);display:grid;place-items:center;
+    flex:0 0 auto;width:22px;height:22px;border-radius:7px;margin-top:3px;
+    border:1.5px solid rgba(156,201,240,.55);display:grid;place-items:center;
     color:transparent;font-size:13px;font-weight:700;transition:.2s;
   }
-  .check input:checked + .box{background:var(--gold-bright);border-color:var(--gold-bright);color:var(--lapis-deep);}
-  .check .txt{font-size:.92rem;color:#dce4ee;}
-  .check input:checked ~ .txt{color:#9fb0c2;text-decoration:line-through;text-decoration-color:rgba(216,166,63,.6);}
+  .check input:checked + .box{background:var(--sky);border-color:var(--sky);color:var(--navy-deep);box-shadow:0 0 14px rgba(88,166,232,.5);}
+  .check .txt{font-size:.9rem;color:#D6E5F4;line-height:1.7;}
+  .check input:checked ~ .txt{color:#7E9CBC;text-decoration:line-through;text-decoration-color:rgba(88,166,232,.55);}
 
   /* ===================== TIMELINE (Gantt-ish months) ===================== */
-  .plan{background:var(--tablet-2);border:1px solid var(--tablet-line);border-radius:18px;padding:clamp(20px,3vw,34px);overflow-x:auto;}
+  .plan{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,34px);overflow-x:auto;box-shadow:var(--shadow-sm);}
   .plan-inner{min-width:640px;}
-  .months{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-bottom:18px;border-bottom:2px solid var(--tablet-line);}
-  .months span{font-family:"Reem Kufi";font-size:.86rem;color:var(--lapis);text-align:center;padding-bottom:8px;position:relative;}
-  .months span::after{content:"";position:absolute;bottom:-2px;inset-inline-start:50%;width:1px;height:8px;background:var(--tablet-line);}
-  .bar-row{display:grid;grid-template-columns:repeat(6,1fr);align-items:center;margin:9px 0;position:relative;}
-  .bar{height:34px;border-radius:8px;display:flex;align-items:center;padding-inline:14px;color:#fff;font-size:.83rem;font-weight:500;white-space:nowrap;box-shadow:0 6px 14px -8px rgba(16,40,63,.5);}
-  .bar.p1{background:linear-gradient(90deg,var(--lapis),var(--lapis-soft));}
-  .bar.p2{background:linear-gradient(90deg,var(--gold),var(--gold-bright));color:var(--lapis-deep);}
-  .bar.p3{background:linear-gradient(90deg,var(--reed),#7f8f63);}
-  .bar.p4{background:linear-gradient(90deg,#7a4a2e,#a9713f);}
+  .months{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-bottom:18px;border-bottom:2px solid var(--ice);}
+  .months span{font-family:"El Messiri";font-size:.88rem;color:var(--blue);text-align:center;padding-bottom:8px;position:relative;}
+  .months span::after{content:"";position:absolute;bottom:-2px;inset-inline-start:50%;width:1px;height:8px;background:var(--line);}
+  .bar-row{display:grid;grid-template-columns:repeat(6,1fr);align-items:center;margin:10px 0;position:relative;}
+  .bar{height:36px;border-radius:10px;display:flex;align-items:center;padding-inline:14px;color:#fff;font-size:.83rem;font-weight:500;white-space:nowrap;box-shadow:0 8px 18px -8px rgba(12,45,87,.45);}
+  .bar.p1{background:linear-gradient(90deg,var(--navy-deep),var(--navy));}
+  .bar.p2{background:linear-gradient(90deg,var(--navy),var(--blue));}
+  .bar.p3{background:linear-gradient(90deg,var(--blue),var(--sky));}
+  .bar.p4{background:linear-gradient(90deg,var(--sky),var(--sky-soft));color:var(--navy);}
 
   /* ===================== ZIGGURAT PHASE JOURNEY ===================== */
   .journey{position:relative;max-width:900px;margin-inline:auto;}
   .spine{position:absolute;inset-inline-end:26px;top:8px;bottom:8px;width:3px;
-    background:linear-gradient(180deg,var(--tablet-line),var(--gold) 8%,var(--gold) 92%,var(--tablet-line));border-radius:3px;}
-  .spine .fill{position:absolute;inset-inline:0;top:0;height:0;background:linear-gradient(180deg,var(--gold-bright),var(--lapis));border-radius:3px;transition:height .1s linear;}
+    background:linear-gradient(180deg,var(--line),var(--sky-soft) 8%,var(--sky-soft) 92%,var(--line));border-radius:3px;}
+  .spine .fill{position:absolute;inset-inline:0;top:0;height:0;background:linear-gradient(180deg,var(--sky),var(--navy));border-radius:3px;transition:height .1s linear;}
   .station{position:relative;padding-inline-end:76px;margin-bottom:30px;opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
   .station.in{opacity:1;transform:none;}
   .marker{
-    position:absolute;inset-inline-end:8px;top:22px;width:40px;height:40px;border-radius:11px;
-    background:var(--tablet);border:2px solid var(--gold);color:var(--lapis);
-    display:grid;place-items:center;font-family:"Reem Kufi";font-weight:700;font-size:1.05rem;z-index:2;
-    box-shadow:0 0 0 5px var(--tablet);
+    position:absolute;inset-inline-end:8px;top:22px;width:40px;height:40px;border-radius:12px;
+    background:var(--white);border:2px solid var(--sky);color:var(--navy);
+    display:grid;place-items:center;font-family:"El Messiri";font-weight:700;font-size:1.05rem;z-index:2;
+    box-shadow:0 0 0 5px var(--paper), 0 6px 14px -6px rgba(30,86,160,.4);
   }
-  .marker.done{background:linear-gradient(150deg,var(--gold-bright),var(--gold));color:var(--lapis-deep);border-color:var(--gold-bright);}
   .card{
-    background:var(--clay-white);border:1px solid var(--tablet-line);border-radius:16px;
-    box-shadow:var(--shadow);overflow:hidden;
+    background:var(--white);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .3s ease;
   }
+  .card.open{box-shadow:var(--shadow);}
   .card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:20px 24px;cursor:pointer;
-    border-inline-end:5px solid var(--lapis);background:linear-gradient(90deg,rgba(29,63,99,.05),transparent);}
-  .card-head h3{font-size:1.18rem;color:var(--lapis);margin:0;flex:1 1 auto;min-width:60%;}
-  .phase-tag{font-size:.72rem;letter-spacing:.12em;color:var(--gold);font-weight:700;text-transform:uppercase;display:block;margin-bottom:2px;}
-  .dur{font-size:.78rem;color:var(--ink-soft);background:var(--tablet);border:1px solid var(--tablet-line);padding:4px 11px;border-radius:999px;white-space:nowrap;}
-  .toggle{width:26px;height:26px;border-radius:7px;border:1px solid var(--tablet-line);display:grid;place-items:center;color:var(--lapis);transition:.25s;background:var(--tablet);}
-  .card.open .toggle{transform:rotate(45deg);background:var(--lapis);color:#fff;}
+    border-inline-end:5px solid var(--blue);background:linear-gradient(90deg,rgba(30,86,160,.05),transparent);}
+  .card-head h3{font-size:1.2rem;color:var(--navy);margin:0;flex:1 1 auto;min-width:60%;}
+  .phase-tag{font-size:.72rem;letter-spacing:.14em;color:var(--sky);font-weight:700;display:block;margin-bottom:2px;}
+  .dur{font-size:.78rem;color:var(--blue);background:var(--ice);border:1px solid var(--line);padding:4px 12px;border-radius:999px;white-space:nowrap;}
+  .toggle{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);display:grid;place-items:center;color:var(--blue);transition:.25s;background:var(--ice);}
+  .card.open .toggle{transform:rotate(45deg);background:var(--blue);color:#fff;border-color:var(--blue);}
   .card-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
   .card.open .card-body{max-height:820px;}
   .card-body-in{padding:6px 24px 24px;}
-  .goal{font-family:"Amiri",serif;font-size:1.05rem;color:var(--ink);background:var(--tablet);border-radius:10px;padding:12px 16px;margin:0 0 18px;border-inline-start:3px solid var(--gold);}
+  .goal{font-family:"Aref Ruqaa",serif;font-size:1.02rem;color:var(--navy);background:var(--ice);border-radius:12px;padding:13px 17px;margin:0 0 18px;border-inline-start:3px solid var(--sky);}
   ul.tasks{list-style:none;margin:0;padding:0;}
-  ul.tasks li{position:relative;padding:7px 26px 7px 0;font-size:.95rem;color:var(--ink);}
-  ul.tasks li::before{content:"𒀸";position:absolute;inset-inline-end:2px;top:7px;color:var(--gold);font-family:serif;font-size:.85rem;opacity:.8;}
-  .req{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:5px;margin-inline-start:6px;vertical-align:middle;letter-spacing:.04em;}
-  .req.must{background:rgba(122,74,46,.15);color:#7a4a2e;border:1px solid rgba(122,74,46,.3);}
-  .req.rec{background:rgba(95,110,72,.15);color:var(--reed);border:1px solid rgba(95,110,72,.3);}
+  ul.tasks li{position:relative;padding:7px 26px 7px 0;font-size:.93rem;color:var(--ink);}
+  ul.tasks li::before{content:"𒀸";position:absolute;inset-inline-end:2px;top:7px;color:var(--sky);font-family:serif;font-size:.85rem;opacity:.9;}
+  .req{display:inline-block;font-size:.67rem;font-weight:700;padding:1px 8px;border-radius:6px;margin-inline-start:6px;vertical-align:middle;letter-spacing:.04em;}
+  .req.must{background:var(--navy);color:#fff;}
+  .req.rec{background:var(--ice);color:var(--blue);border:1px solid var(--sky-soft);}
 
   /* ===================== CRITERIA GRID ===================== */
   .crit-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:18px;}
-  .crit{background:var(--clay-white);border:1px solid var(--tablet-line);border-radius:14px;padding:22px 22px 20px;position:relative;box-shadow:var(--shadow);}
-  .crit .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--lapis);color:var(--gold-bright);font-family:serif;font-size:20px;margin-bottom:14px;}
-  .crit h4{font-family:"Reem Kufi";font-size:1.05rem;color:var(--lapis);margin:0 0 8px;}
-  .crit p{font-size:.9rem;color:var(--ink-soft);margin:0;}
-  .crit.flag{border-color:var(--gold);box-shadow:0 0 0 2px rgba(176,129,43,.25),var(--shadow);}
-  .crit.flag .ic{background:linear-gradient(150deg,var(--gold-bright),var(--gold));color:var(--lapis-deep);}
-  .flag-note{font-size:.8rem;color:var(--gold);font-weight:700;margin-top:10px;}
+  .crit{
+    background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 22px 20px;
+    position:relative;box-shadow:var(--shadow-sm);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .crit:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .crit .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--ice);color:var(--blue);font-family:serif;font-size:20px;margin-bottom:14px;border:1px solid var(--line);}
+  .crit h4{font-family:"El Messiri";font-size:1.08rem;color:var(--navy);margin:0 0 8px;}
+  .crit p{font-size:.88rem;color:var(--ink-soft);margin:0;line-height:1.8;}
+  .crit.flag{
+    border-color:var(--sky);
+    background:linear-gradient(180deg,#fff, var(--ice));
+    box-shadow:0 0 0 3px rgba(88,166,232,.18),var(--shadow-sm);
+  }
+  .crit.flag .ic{background:linear-gradient(150deg,var(--sky),var(--blue));color:#fff;border-color:transparent;}
+  .flag-note{font-size:.8rem;color:var(--blue);font-weight:700;margin-top:10px;}
 
   /* ===================== NOTE / EXCEPTION ===================== */
-  .aha{background:var(--lapis);color:var(--clay-white);border-radius:18px;padding:clamp(24px,3.4vw,40px);display:flex;gap:22px;flex-wrap:wrap;align-items:center;box-shadow:var(--shadow);}
-  .aha .big{font-family:"Reem Kufi";font-size:clamp(2.2rem,6vw,3rem);color:var(--gold-bright);line-height:1;flex:0 0 auto;}
+  .aha{
+    background:
+      radial-gradient(ellipse 90% 100% at 90% 0%, rgba(88,166,232,.3), transparent 55%),
+      linear-gradient(160deg,var(--navy-deep),var(--navy) 70%,var(--blue));
+    color:var(--white);border-radius:22px;padding:clamp(26px,3.4vw,42px);
+    display:flex;gap:22px;flex-wrap:wrap;align-items:center;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .aha::after{content:"𒂗";position:absolute;inset-inline-start:-10px;bottom:-38px;font-family:serif;font-size:9rem;color:#fff;opacity:.05;pointer-events:none;}
+  .aha .big{font-family:"El Messiri";font-size:clamp(2.2rem,6vw,3rem);color:var(--sky);line-height:1;flex:0 0 auto;text-shadow:0 0 30px rgba(88,166,232,.6);}
   .aha div{flex:1 1 320px;}
-  .aha h3{color:#fff;margin:0 0 8px;font-size:1.3rem;}
-  .aha p{margin:0;color:#cdd8e4;font-size:.98rem;}
+  .aha h3{color:#fff;margin:0 0 8px;font-size:1.32rem;}
+  .aha p{margin:0;color:#C4D8EC;font-size:.96rem;}
+  .aha b{color:#fff;}
 
   /* ===================== FOOTER ===================== */
-  footer{background:var(--lapis-deep);color:#aebccb;padding-block:44px;margin-top:20px;text-align:center;font-size:.86rem;}
-  footer .mono{color:var(--gold-bright);}
-  footer a{color:var(--gold-bright);text-decoration:none;}
-  .foot-mark{font-family:serif;font-size:2rem;opacity:.3;color:#fff;display:block;margin-bottom:10px;}
+  footer{background:var(--navy-deep);color:#8FAECB;padding-block:46px;margin-top:20px;text-align:center;font-size:.85rem;}
+  footer .mono{color:var(--sky);}
+  footer a{color:var(--sky);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  .foot-mark{font-family:serif;font-size:2rem;opacity:.35;color:#fff;display:block;margin-bottom:10px;}
 
   /* ===================== RESPONSIVE ===================== */
   @media (max-width:760px){
     .snap-grid{grid-template-columns:1fr;}
-    .snap-right{border-inline-start:0;border-top:1px solid rgba(216,166,63,.22);}
     .brandbar .spacer{display:none;}
   }
   @media (prefers-reduced-motion:reduce){
@@ -248,7 +289,7 @@
     <p class="lede">
       خطة مُحكَمة، مرحلة بمرحلة، توائم بين مجلة إنكي ومعايير دليل <span class="num">DOAJ</span> (النسخة <span class="num">2.8</span>) —
       من الهوية والوصول المفتوح إلى التحكيم والتقديم.
-      <span class="amiri">«إنكي» رمزُ الحكمة والمعرفة في حضارة الرافدين، ووجهتنا أن تُقرأ معرفتها في العالم كلّه.</span>
+      <span class="ruqaa">«إنكي» رمزُ الحكمة والمعرفة في حضارة الرافدين، ووجهتنا أن تُقرأ معرفتها في العالم كلّه.</span>
     </p>
 
     <div class="stat-row">
